@@ -5,7 +5,7 @@ import (
     "log"
     "net/http"
     "fmt"
-    "gopkg.in/mgo.v2"
+    "db.go"
 //    "expvar"
 )
 
