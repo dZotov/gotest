@@ -4,8 +4,8 @@ import (
 //    "encoding/json"
     "log"
     "net/http"
-    "fmt"
-    "db.go"
+   "./tour"
+    "io"
 //    "expvar"
 )
 
@@ -13,9 +13,7 @@ import (
 
 func handler(w http.ResponseWriter, req *http.Request){
 
-	fmt.Fprintf(w, "!!!!\n")
-
-	//io.WriteStrning(writer,"!!!!")
+	io.WriteString(w,"!!!!")
 
 }
 
@@ -24,14 +22,26 @@ func main(){
 
 	http.HandleFunc("/", handler)
 
-	if err := http.ListenAndServe(":2000", nil); err != nil {
+	if err := http.ListenAndServe(":3000", nil); err != nil {
     	log.Fatal("ListenAndServe: ", err)
   	}
 
 }
 
 
+// import (
+// 	"io"
+// 	"net/http"
 
+// )
 
+// func hello(w http.ResponseWriter, r *http.Request) {
+// 	io.WriteString(w, "Hello world!")
 
+// }
 
+// func main() {
+// 	mux := http.NewServeMux()
+// 	mux.HandleFunc("/", hello)
+// 	http.ListenAndServe(":3000", mux)
+// }
